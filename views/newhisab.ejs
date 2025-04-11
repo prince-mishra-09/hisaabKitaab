@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Hisaab - Hisaab Kitaab</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f4f4f4;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 40px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+
+    .main {
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    form {
+      width: 100%;
+      max-width: 600px;
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form h1 {
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 200px;
+      padding: 15px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      resize: vertical;
+      margin-bottom: 20px;
+    }
+
+    input[type="submit"] {
+      padding: 12px 25px;
+      font-size: 1em;
+      background-color: #00aa55;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #007b3a;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <h2>Hisaab Kitaab</h2>
+    <div>
+        <a href="/">🏠 Home</a>
+        <a href="/newhisaabpage">➕ New Hisaab</a>
+      </div>
+  </nav>
+
+  <div class="main">
+    <form action="/newhisaab" method="post">
+      <h1>Create a new Hisaab</h1>
+      <input type="text" name="title" placeholder="Title (e.g. grocery, dinner)" required>
+      <textarea name="data" placeholder="daal, chawal, sabzi..."></textarea>
+      <input type="submit" value="Save Hisaab">
+    </form>
+  </div>
+</body>
+
+</html>

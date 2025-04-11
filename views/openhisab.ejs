@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Read Hisaab - Hisaab Kitaab</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f7f7f7;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav h3 {
+      color: #2c3e50;
+      margin: 0;
+    }
+
+    nav div {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #007bff;
+    }
+
+    .main {
+      padding: 40px 30px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .main h1 {
+      margin-bottom: 20px;
+      color: #2c3e50;
+      font-size: 1.6em;
+    }
+
+    form {
+      background-color: #ffffff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+    }
+
+    .edit-btn {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #ffff0085;
+      border: none;
+      border-radius: 8px;
+      color: #333;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .edit-btn:hover {
+      background-color: #ffea00;
+    }
+
+    .main p {
+      font-size: 1.1em;
+      line-height: 1.6em;
+      color: #444;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <h3>Hisaab Kitaab</h3>
+    <div>
+        <a href="/">🏠 Home</a>
+        <a href="/newhisaabpage">➕ New Hisaab</a>
+      </div>
+  </nav>
+
+  <div class="main">
+    <h1>Here's your hisaab: <%= hisabdata.filename %></h1>
+    <form action="/edit/<%= hisabdata.filename %>" method="post">
+      <input class="edit-btn" type="submit" value="Edit Hisaab" />
+      <p><%- hisabdata.filedata.replace(/\n/g, "<br>") %></p>
+    </form>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home - Hisaab Kitaab</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      background-color: #f7f7f7;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    nav h3 {
+      color: #2c3e50;
+    }
+
+    nav div {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    nav div a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav div a:hover {
+      color: #1e9b44;
+    }
+
+    .main {
+      padding: 40px 20px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .main h1 {
+      margin-bottom: 30px;
+      color: #2c3e50;
+      text-align: center;
+      font-size: 2em;
+    }
+
+    .greeting-banner {
+      background-color: #e0ffe4;
+      border: 2px solid #1e9b44;
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      animation: slideIn 1s ease forwards;
+      opacity: 0;
+      transform: translateY(-20px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .greeting-banner h2 {
+      margin-bottom: 5px;
+      color: #1e9b44;
+      font-size: 1.8em;
+    }
+
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hisaabPage {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f0f0f0;
+      padding: 12px 20px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .hisaabPage p {
+      font-size: 1.1em;
+      font-weight: 500;
+      color: #333;
+    }
+
+    .arrow,
+    .edit,
+    .delete {
+      height: 30px;
+      border-radius: 8px;
+      transition: transform 0.2s ease;
+    }
+
+    .arrow {
+      background-color: #4ce31e80;
+      border-radius: 50%;
+      transform: rotate(-90deg);
+    }
+
+    .edit {
+      background-color: #ffff0085;
+    }
+
+    .delete {
+      background-color: #fc2e2e5d;
+    }
+
+    .edit:hover,
+    .delete:hover,
+    .arrow:hover {
+      transform: scale(1.1);
+    }
+
+    .message {
+      text-align: center;
+      font-size: 1.1em;
+      color: #555;
+      margin-top: 20px;
+    }
+
+    .message a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .message a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <h3>Hisaab Kitaab</h3>
+    <div>
+      <a href="/">🏠 Home</a>
+      <a href="/profile"><%= (loggedIn) ? "🤖 Profile " : "" %></a>
+      <a href="/newhisaabpage">➕ New Hisaab</a>
+      <h3><a href="/logout"><%= (loggedIn) ? "logout" : "" %></a></h3>
+    </div>
+  </nav>
+
+  <div class="main">
+    <% if (loggedIn) { %>
+      <div class="greeting-banner">
+        <h2>
+          <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="40"
+            style="vertical-align: middle;" />
+          Welcome back, <%= username %>!
+        </h2>
+        <p>Ready to manage your hisaabs today?</p>
+      </div>
+    <% } %>
+
+    <h1>All Hisaabs Are Here!</h1>
+
+    <% if (!loggedIn) { %>
+      <p class="message">
+        Please <a href="/login">login</a> to see your records or <a href="/signup">create an account</a>.
+      </p>
+    <% } else if (files && files.length > 0) { %>
+      <% files.forEach(file => { %>
+        <div class="hisaabPage">
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <p><%= file %></p>
+            <a href="/read/<%= file %>">
+              <img class="arrow"
+                src="https://www.reshot.com/preview-assets/icons/YLGRHVT4P3/arrow-down-circle-YLGRHVT4P3.svg"
+                alt="view" />
+            </a>
+          </div>
+          <div style="display: flex; gap: 10px;">
+            <form action="/edit/<%= file %>" method="POST">
+              <button type="submit" style="background: none; border: none; cursor: pointer;">
+                <img class="edit"
+                  src="https://www.reshot.com/preview-assets/icons/Q9X5K68PDE/edit-Q9X5K68PDE.svg" alt="edit" />
+              </button>
+            </form>
+            <a href="/delete/<%= file %>" onclick="return confirm('Are you sure you want to delete this?')">
+              <img class="delete"
+                src="https://www.reshot.com/preview-assets/icons/KL8MB62NXD/delete-KL8MB62NXD.svg" alt="delete" />
+            </a>
+          </div>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p class="message">There is no any hisaab</p>
+    <% } %>
+  </div>
+</body>
+
+</html>

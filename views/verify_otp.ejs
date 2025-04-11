@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Verify OTP - Hisaab Kitaab</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff1f1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    nav {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: white;
+      box-sizing: border-box;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+
+    .container {
+      margin-top: 60px;
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+      max-width: 400px;
+      width: 90%;
+    }
+
+    h1 {
+      color: crimson;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: crimson;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: darkred;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h2>Hisaab Kitaab</h2>
+    <div><a href="/">Go to Home</a></div>
+  </nav>
+  <% if (showOtpNotice) { %>
+    <div style="background-color: #ffe4b5; padding: 15px; border-radius: 10px; color: #333; margin-bottom: 20px;margin-top: 20px;">
+      📬 OTP sent! Please check your <strong>Gmail inbox</strong> or <strong>Spam folder</strong>.
+    </div>
+  <% } %>
+  
+  <div class="container">
+    <h1>Enter the OTP</h1>
+    <form action="/verify-otp" method="POST">
+      <input type="hidden" name="email" value="<%= email %>">
+      <input type="text" name="otp" placeholder="Enter OTP" required>
+      <input type="submit" value="Verify OTP">
+    </form>
+  </div>
+<!--   
+<script>
+    alert("✅ OTP sent successfully! Please check your Gmail inbox or spam folder.");
+</script> -->
+</body>
+</html>

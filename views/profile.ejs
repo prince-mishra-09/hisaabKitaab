@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile - Hisaab Kitaab</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f7f7;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    nav a {
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.7s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1 {
+      margin-bottom: 20px;
+      color: #2e8b57;
+      text-align: center;
+    }
+    p {
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .change-pass {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .change-pass a {
+      background-color: #00aa55;
+      padding: 10px 20px;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    .change-pass a:hover {
+      background-color: #007b3a;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h3>Hisaab Kitaab</h3>
+    <a href="/">Go to Home</a>
+  </nav>
+  <div class="container">
+    <h1>Your Profile</h1>
+    <p><strong>Name:</strong> <%= user.name %></p>
+    <p><strong>Email:</strong> <%= user.email %></p>
+    <p><strong>Joined On:</strong> <%= user.joined %></p>
+
+    <div class="change-pass">
+      <a href="/change-password">Change Password</a>
+    </div>
+    <div style="max-width:800px; margin:40px auto; background:#ffffff; padding:30px; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.1); font-family:Arial, sans-serif; color:#1e293b;">
+      <h2 style="color:#0f172a; margin-bottom:20px;">📘 About Hisaab Kitaab</h2>
+      
+      <p style="font-size:1.05em; line-height:1.8;">
+          Welcome to <strong>Hisaab Kitaab</strong> — your personal expense tracker built with love, logic, and lots of caffeine! ☕
+      </p>
+      
+      <p style="font-size:1.05em; line-height:1.8;">
+          I’m <strong>Prince Mishra</strong>, the creator of this project. I built it completely from scratch while learning web development. 
+          I'm still new to this field, so sometimes things might break (hopefully not 😅), but I promise I’m always improving and learning.
+      </p>
+  
+      <p style="font-size:1.05em; line-height:1.8;">
+          This app lets you manage your daily kharchas easily, and it even sends you important emails like OTPs and password reset confirmations.
+          <strong>Sometimes these emails go to your Spam folder</strong>, so make sure to check there too! 📩
+      </p>
+  
+      <div style="margin:20px 0; background:#f1f5f9; padding:15px 20px; border-left:5px solid #0ea5e9; border-radius:8px;">
+          <p style="margin:0; font-size:1em;">Facing any issue or just want to say hi? Drop me a mail anytime at 👉 <a href="mailto:mrprimi09@gmail.com" style="color:#0ea5e9;">mrprimi09@gmail.com</a></p>
+      </div>
+  
+      <p style="font-size:0.9em; color:gray;">Thank you for using Hisaab Kitaab – where every paisa counts! 💸</p>
+  </div>
+  
+  </div>
+</body>
+</html>

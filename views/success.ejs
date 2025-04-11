@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Success - Hisaab Kitaab</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f7f7f7;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      background-color: #ffffff;
+      padding: 15px 30px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav h3 {
+      color: #2c3e50;
+      font-size: 1.5em;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1e9b44;
+      font-weight: bold;
+      font-size: 1em;
+      padding: 8px 16px;
+      border: 2px solid #1e9b44;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #1e9b44;
+      color: white;
+    }
+
+    .success-container {
+      background-color: #e0ffe4;
+      border: 2px solid #1e9b44;
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 500px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      animation: slideUpFadeIn 1s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+      margin: auto;
+    }
+
+    @keyframes slideUpFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .success-container img {
+      width: 70px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #1e9b44;
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #333;
+      font-size: 1.1em;
+      margin-bottom: 25px;
+    }
+
+    .go-back {
+      text-decoration: none;
+      padding: 12px 24px;
+      background-color: #1e9b44;
+      color: white;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+    }
+
+    .go-back:hover {
+      background-color: #157a33;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <h3>Hisaab Kitaab</h3>
+    <a href="/">Go to Home</a>
+  </nav>
+
+  <div class="success-container">
+    <img src="https://media.giphy.com/media/111ebonMs90YLu/giphy.gif" alt="Success Tick" />
+    <h1>Success!</h1>
+    <p><%= message %></p>
+    <a class="go-back" href="/">Go to Home</a>
+  </div>
+</body>
+
+</html>
