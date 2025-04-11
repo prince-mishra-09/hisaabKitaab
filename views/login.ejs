@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Login - Khatabook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
+    *{
+      box-sizing: border-box;
+    }
     body {
       background: #f3f4f6;
       font-family: Arial, sans-serif;
@@ -11,7 +15,10 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      margin: 0;
+      padding: 0 10px;
     }
+
     .container {
       background: #fff;
       padding: 30px 40px;
@@ -20,17 +27,22 @@
       width: 100%;
       max-width: 400px;
     }
+
     h2 {
       text-align: center;
       color: #111827;
+      margin-bottom: 20px;
     }
+
     input {
       width: 100%;
       padding: 10px;
       margin: 12px 0;
       border: 1px solid #d1d5db;
       border-radius: 5px;
+      font-size: 16px;
     }
+
     button {
       width: 100%;
       background: #10b981;
@@ -39,17 +51,36 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      font-size: 16px;
     }
+
     button:hover {
       background: #059669;
     }
+
     p {
       text-align: center;
       margin-top: 15px;
     }
+
     a {
       color: #10b981;
       text-decoration: none;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 20px;
+      }
+
+      input, button {
+        font-size: 15px;
+        padding: 10px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
     }
   </style>
 </head>
