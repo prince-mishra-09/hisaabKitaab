@@ -48,8 +48,9 @@ app.use(session({
 // =========================
 // MongoDB Connection
 // =========================
-mongoose.connect(`${process.env.MONGO_URI}/${process.env.DB_NAME}`)
-    .then(() => console.log("✅ MongoDB connected"))
+mongoose.connect(process.env.MONGO_URI, {
+    dbName: process.env.DB_NAME,
+}).then(() => console.log("✅ MongoDB connected"))
     .catch(err => {
         console.log("❌ MongoDB error", err);
         process.exit(1);
