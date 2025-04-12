@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shop Calculator - Hisaab Kitaab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      background-color: #f3f4f6;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    *{
+      box-sizing: border-box;
+    }
+
+    nav {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    nav h2 {
+      color: #ff6600;
+      margin: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #ff6600;
+    }
+
+    .calculator-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding-top: 120px; 
+    }
+
+    .calculator {
+      background-color: #222;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      width: 320px;
+    }
+
+    .display {
+      background-color: #111;
+      color: #0f0;
+      font-size: 32px;
+      text-align: right;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .buttons button {
+      padding: 20px;
+      font-size: 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .buttons button:hover {
+      background-color: #444;
+    }
+
+    .buttons .operator {
+      background-color: #f97316;
+      color: white;
+    }
+
+    .buttons .operator:hover {
+      background-color: #ea580c;
+    }
+
+    .buttons .equal {
+      background-color: #10b981;
+      grid-column: span 2;
+    }
+
+    .buttons .clear, .buttons .del {
+      background-color: #ef4444;
+    }
+
+    .buttons .clear {
+      grid-column: span 2;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <h2>Hisaab Kitaab</h2>
+    <a href="/">Go to Home</a>
+  </nav>
+
+  <!-- Calculator -->
+  <div class="calculator-wrapper">
+    <div class="calculator">
+      <div class="display" id="display">0</div>
+      <div class="buttons">
+        <button onclick="clearDisplay()" class="clear">C</button>
+        <button onclick="append('/')" class="operator">/</button>
+        <button onclick="append('*')" class="operator">×</button>
+
+        <button onclick="append('7')">7</button>
+        <button onclick="append('8')">8</button>
+        <button onclick="append('9')">9</button>
+        <button onclick="append('-')" class="operator">−</button>
+
+        <button onclick="append('4')">4</button>
+        <button onclick="append('5')">5</button>
+        <button onclick="append('6')">6</button>
+        <button onclick="append('+')" class="operator">+</button>
+
+        <button onclick="append('1')">1</button>
+        <button onclick="append('2')">2</button>
+        <button onclick="append('3')">3</button>
+        <button onclick="deleteLast()" class="del">del</button>
+
+        <button onclick="calculate()" class="equal">=</button>
+        <button onclick="append('0')">0</button>
+        <button onclick="append('.')">.</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const display = document.getElementById("display");
+
+    function append(char) {
+      if (display.textContent === "0" || display.textContent === "Error") {
+        display.textContent = char;
+      } else {
+        display.textContent += char;
+      }
+    }
+
+    function clearDisplay() {
+      display.textContent = "0";
+    }
+
+    function calculate() {
+      try {
+        display.textContent = eval(display.textContent);
+      } catch (e) {
+        display.textContent = "Error";
+      }
+    }
+
+    function deleteLast() {
+      if (display.textContent.length > 1 && display.textContent !== "Error") {
+        display.textContent = display.textContent.slice(0, -1);
+      } else {
+        display.textContent = "0";
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 require('dotenv').config();
-console.log("MONGO_URI:", process.env.MONGO_URI);
+
 
 // =========================
 // Required Modules
@@ -409,9 +409,16 @@ app.post('/reset-password', async (req, res) => {
     res.render('success', { message: "Password reset successfully!" });
 });
 
+//=================
+//shop-calculator
+app.get("/shop-calculator", (req, res) => {
+    res.render("shopcalculator");
+  });
+  
+
 // =========================
 // Start Server
 // =========================
 app.listen(3000, () => {
-    console.log("🚀 Server running at http://localhost:3000");
+    // console.log("🚀 Server running at http://localhost:3000");
 });

@@ -5,9 +5,10 @@
   <title>Login - Khatabook</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    *{
+    * {
       box-sizing: border-box;
     }
+
     body {
       background: #f3f4f6;
       font-family: Arial, sans-serif;
@@ -23,7 +24,7 @@
       background: #fff;
       padding: 30px 40px;
       border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       width: 100%;
       max-width: 400px;
     }
@@ -34,6 +35,10 @@
       margin-bottom: 20px;
     }
 
+    .input-group {
+      position: relative;
+    }
+
     input {
       width: 100%;
       padding: 10px;
@@ -41,6 +46,16 @@
       border: 1px solid #d1d5db;
       border-radius: 5px;
       font-size: 16px;
+    }
+
+    .toggle-password {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 16px;
+      color: #6b7280;
     }
 
     button {
@@ -89,10 +104,29 @@
     <h2>Login to HisabKitab</h2>
     <form method="POST" action="/login">
       <input type="email" name="email" placeholder="Email" required />
-      <input type="password" name="password" placeholder="Password" required />
+
+      <div class="input-group">
+        <input type="password" id="password" name="password" placeholder="Password" required />
+        <span class="toggle-password" onclick="togglePassword()">😌</span>
+      </div>
+
       <button type="submit">Login</button>
     </form>
     <p>Don't have an account? <a href="/signup">Signup here</a></p>
   </div>
+
+  <script>
+    function togglePassword() {
+      const passwordInput = document.getElementById("password");
+      const toggleIcon = document.querySelector(".toggle-password");
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        toggleIcon.textContent = "🫣";
+      } else {
+        passwordInput.type = "password";
+        toggleIcon.textContent = "😌";
+      }
+    }
+  </script>
 </body>
 </html>
