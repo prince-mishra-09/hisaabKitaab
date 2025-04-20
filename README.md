@@ -31,15 +31,14 @@
 
 ## 🛠️ Technologies Used
 
-+-----------------------------------------------------+
 | Layer         | Tech Stack                          |
-+---------------+-------------------------------------+
+|---------------|-------------------------------------|
 | **Frontend**  | HTML, CSS, JavaScript               |
 | **Backend**   | Node.js, Express.js                 |
 | **Database**  | MongoDB (via Mongoose)              |
 | **Email OTP** | NodeMailer + Gmail SMTP             |
 | **Hosting**   | Vercel (Frontend), Render (Backend) |
-+-----------------------------------------------------+
+
 
 ---
 
@@ -61,7 +60,7 @@
 
 ---
 
-## 📷 Screenshots *(Optional)*
+## 📷 Screenshots
 
 ![image](https://github.com/user-attachments/assets/893c722c-64c3-419e-9b53-a4d770a7c0da)
 
@@ -99,8 +98,8 @@ Pull requests are welcome! If you'd like to improve something, feel free to fork
 For any queries, suggestions, or contributions:
 
 📧 Email: mrprimi09@gmail.com 
-🔗 LinkedIn: Prince Mishra ( https://www.linkedin.com/in/prince-mishraweb/ )
-🐙 GitHub: Prince Mishra ( https://github.com/prince-mishra-09 )
+🔗 LinkedIn: [Prince Mishra]( https://www.linkedin.com/in/prince-mishraweb/ )
+🐙 GitHub: [Prince Mishra]( https://github.com/prince-mishra-09 )
 
 ---
 
